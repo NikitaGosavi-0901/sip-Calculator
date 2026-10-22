@@ -1,0 +1,472 @@
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #07111f;
+    color: #e8f0fa;
+    min-height: 100vh;
+    padding: 35px 18px;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+h1 span {
+    color: #34d399;
+}
+
+.subtitle {
+    color: #94a3b8;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.calculator,
+.result-card,
+.chart-container,
+.table-container {
+    background: #101d30;
+    border: 1px solid #23344b;
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+h2, h3 {
+    color: #f1f5f9;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #33465f;
+    border-radius: 10px;
+    background: #0a1525;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+}
+
+#calculateBtn {
+    background: #34d399;
+    color: #052e24;
+}
+
+#resetBtn {
+    background: #23344b;
+    color: #e8f0fa;
+    margin-left: 8px;
+}
+
+#result {
+    color: #cbd5e1;
+    line-height: 1.9;
+}
+
+#result h2 {
+    color: #34d399;
+}
+
+#result strong {
+    color: #ffffff;
+}
+
+.chart-container {
+    height: 360px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #26364b;
+}
+
+th {
+    color: #34d399;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #d5dfec;
+}
+
+tbody tr:hover {
+    background: #17273c;
+}
+
+@media (min-width: 700px) {
+    .calculator {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 18px;
+    }
+
+    .calculator h2 {
+        grid-column: 1 / -1;
+    }
+
+    .calculator button {
+        align-self: start;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 22px 12px;
+    }
+
+    .calculator,
+    .result-card,
+    .chart-container,
+    .table-container {
+        padding: 17px;
+        border-radius: 14px;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    #resetBtn {
+        margin-left: 4px;
+    }
+}
+
+/* Premium investment result cards */
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: #0a1525;
+    border: 1px solid #2b4057;
+    border-radius: 14px;
+    padding: 20px;
+    min-width: 0;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #34d399;
+}
+
+.stat-card p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.stat-card h3 {
+    color: #e8f0fa;
+    font-size: clamp(16px, 2.5vw, 23px);
+    overflow-wrap: anywhere;
+    margin-bottom: 0;
+}
+
+.highlight-card {
+    background: linear-gradient(135deg, #064e3b, #102f35);
+    border-color: #10b981;
+}
+
+.highlight-card h3 {
+    color: #6ee7b7;
+}
+
+.disclaimer {
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Premium button effects */
+
+#calculateBtn {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    color: #052e24;
+    box-shadow: 0 5px 18px rgba(16, 185, 129, 0.2);
+}
+
+#calculateBtn:hover {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+}
+
+#resetBtn {
+    background: #1b2b40;
+    color: #e2e8f0;
+    border: 1px solid #33465f;
+}
+
+#resetBtn:hover {
+    background: #263b53;
+    border-color: #34d399;
+}
+
+button:focus-visible {
+    outline: 2px solid #6ee7b7;
+    outline-offset: 3px;
+}
+
+/* Fix calculator input alignment */
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 22px;
+    align-items: start;
+}
+
+.calculator h2 {
+    grid-column: 1 / -1;
+}
+
+.calculator label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.calculator input {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.calculator button {
+    align-self: start;
+}
+
+@media (max-width: 650px) {
+    .calculator {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator h2 {
+        grid-column: auto;
+    }
+}
+
+/* Keep result amounts inside their cards */
+
+.result-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.stat-card {
+    padding: 14px 12px;
+    min-width: 0;
+}
+
+.stat-card h3 {
+    font-size: clamp(13px, 1.5vw, 20px);
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+@media (max-width: 650px) {
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* New Reset button design */
+
+#resetBtn {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    color: #052e24;
+    border: none;
+    box-shadow: 0 5px 18px rgba(16, 185, 129, 0.2);
+    
+}
+
+#resetBtn:hover {
+    background: linear-gradient(135deg, #62e277, #56d07f);
+    
+    box-shadow: 0 6px 18px rgba(14, 232, 68, 0.35);
+}
+
+/* Final calculator layout adjustment */
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    align-items: start;
+}
+
+.calculator h2 {
+    grid-column: 1 / -1;
+}
+
+.calculator label {
+    margin-bottom: 8px;
+}
+
+.calculator input {
+    width: 100%;
+    margin-top: 0;
+}
+
+@media (max-width: 650px) {
+    .calculator {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator h2 {
+        grid-column: auto;
+    }
+}
+
+
+/* Correct SIP form layout */
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    align-items: start;
+}
+
+.calculator-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.calculator-form input {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.calculator-form button {
+    width: 100%;
+    align-self: start;
+}
+
+@media (max-width: 650px) {
+    .calculator-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    margin: 0;
+}
+
+.calculator-form button {
+    width: 100%;
+    align-self: end;
+}
+
+@media (max-width: 650px) {
+    .calculator-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix button spacing and alignment */
+.calculator-form .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-self: end;
+    margin-top: 0;
+}
+
+.calculator-form .button-group button {
+    width: 100%;
+    min-height: 52px;
+    margin: 0;
+    position: static;
+}
+
+#result {
+    margin-top: 28px;
+}
